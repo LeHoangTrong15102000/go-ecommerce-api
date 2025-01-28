@@ -25,7 +25,17 @@
 
 > > > > Go (5) GIN vs Error Handler
 
-- Video 5
+- Những cái dự án gần đây thường viết một cái method thông qua một cái `struct`
+
+- Nếu như có lỗi thì cần khai báo chung chung cho ng dùng mà thôi, không được cho biết là hệ thống đang bị lỗi gì nếu mà như vậy thì `hacker` nó sẽ dò ra được cái mật khẩu của người dùng.
+
+-Thì thằng `response` nó sẽ sử dụng 2 phương thức đó là
+
+- Cái phương thức đầu tiên đó chính là, bây giờ thì nó sẽ được thay thể ở bên trong -> Thì bây giờ chúng ta sẽ viết một cái `response` để mà thay thế cái thằng `gin.H` ở trong từng thằng `controller`
+
+  - Bây giờ chúng ta cần phải định dạng thống nhất cho ae
+
+  - `func SuccessResponse(c \*gin.Context, code int, data interface{}) {}`, gin.Context{} còn phải có ở trong mỗi response
 
 > > > > Go (6) GIN vs Logs Handler
 

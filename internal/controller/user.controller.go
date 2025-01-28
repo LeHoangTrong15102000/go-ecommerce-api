@@ -2,6 +2,7 @@ package controller
 
 import (
 	"go-ecommerce-backend-api/internal/service"
+	"go-ecommerce-backend-api/pkg/response"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -26,8 +27,9 @@ func NewUserController() *UserController {
 // us user service đây là những quy ước chung của golang khi mà phát triển phần mềm
 func (uc *UserController) GetUserById(c *gin.Context) {
 
-	c.JSON(http.StatusOK, gin.H{
-		"message": uc.userService.GetInfoUser(),
-		"users":   []string{"user1", "user2", "user3"},
+	c.JSON(http.StatusOK, response.ResponseData{
+		Code: 20001,
+		Message: "success",
+		Data: []string{"user1", "user2", "user3"},
 	})
 }
