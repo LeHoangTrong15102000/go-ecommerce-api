@@ -37,9 +37,47 @@
 
   - `func SuccessResponse(c \*gin.Context, code int, data interface{}) {}`, gin.Context{} còn phải có ở trong mỗi response
 
+  - Còn đi sâu hơn thì chúng ta sẽ có nhiều cái response, ví dụ như là trả về một cái list nó có limit, skip, offset, ... nó có phân trang thì nó sẽ khác -=> mà trả về cái đối tượng tương tự như vậy thì chúng ta có nhiều cái cách trả về của các phương thức khác nhau nữa nên là khi đi sâu vào dự án chúng ta sẽ làm dần dần.
+
+  - Thì chúng ta sẽ có 2 cái trạng thái một là `ErrorResponse` 2 là `SuccessResponse`, thì là còn nhiều lỗi lắm giống như là chúng ta làm từng bước thì nó sẽ có nhiều cái event xảy ra -> Giống như là token bị lỗi , token hết hạn, refresh-token hết hạn,... Thì lúc đó chúng ta cần phải khai báo nhiều cái ở trong `msg` để mà thống nhất
+
 > > > > Go (6) GIN vs Logs Handler
 
-- Video 5
+- Một BE mà không có log là một sai lầm, ghi log là một phần kh ông thể thiếu ở trong môi trường lập trình ứng dụng
+
+- Thì ở trong Golang này chúng ta sẽ sử dụng thằng `Zap` một trong những mã nguồn mở của `Uber` ghi log rất là mạnh mẽ -> Cung cấp ghi log phân cấp có cấu trúc cực kì nhanh và phân bổ tài nguyên tối thiểu -> Thì cho thấy thằng `Zap` có hiệu suất vượt trội hầu hết hơn hẳn các thằng khác so với các thư viện ghi Log có cấu trúc tương đương ở trong golang
+
+- Thằng Zap nó cung cấp 2 loại log đó chính là `Sugar` và `Logger`, và thằng `Infof` thì nó là dạng giống như là `Printf` ở trong thằng golang này vậy
+
+  - Thì thằng Logger nó cung cấp kiểu `Key` và `Value`
+
+  - Thì thằng Zap này nó cung cấp cho chúng ta 3 cái cấu hình để mà chúng ta lựa chọn ghi log trong nhật kí -> Đó là Example, nhưng mà thật ra thì nó 2 cái cấu hình rất là cơ bản đó là `development` và `production`
+
+  - Chúng ta sẽ có 3 cái level khác nhau, 3 cái cấp độ nhật kí khác nhau
+
+    - Thằng Development thì nó đưa ra INFO log ra thời gian của nó, còn thằng Production thì nó tự customize lại cái log của nó -> Cho nên chúng ta sẽ làm một cái riêng cho dự án `Go Ecommerce` BE của mình và tích hợp nó vào dự án để mà sử dụng xuyên suốt trong cả quá trình phát triển luôn -> Sẽ áp dụng vào `NewProduction` và `NewDevelopment` làm sao để mà cho nó có hiệu quả
+
+  - Việc thực hiện `customize` thì nó sẽ như thế nào
+
+    - Đầu tiên thì chúng ta sẽ viết định dạng của log, zapcore là một tính năng đóng gói của zap
+
+    - Bây giờ chúng ta muốn định dạng về cái thời gian của chúng ta đi, thời gian và ngày tháng ở trong production thì nó đang là `timestamp` bây giờ chúng ta muốn định dạng nó về định dạng thời gian mà chúng ta hay thấy nhất `2025-01-29 10:00:00` thì nó sẽ như thế nào
+
+      - Thi đầu tiên cần phải khai báo thêm một cái `encodeConfig.EncodeTime`
+
+      - Về thằng write thì cái thằng zap nguyên mẫu thì nó không cho phép chúng ta phân đoạn từng file một -> Do nó phải sử dụng một cái gói mà thằng Uber nó khuyến nghị đó là `Lumberjack`
+
+      - 3 cái tham số này khi mà mở một file trong nodejs hay golang đều phải có 3 cái tham số này `file, _ := os.OpenFile(name, flag, perm)` -> Đó là `name, flag, perm`
+
+        - Thứ nhất là tập tin - tên của file
+        - THứ hai là flag(Đây là kiểu số nguyên INT) - giúp cho chúng ta đại diện cho chế độ mở tập tin, ví dụ như read-only, write-only, read-write, ... hoặc là append, ...
+        - Thứ ba là perm - độ truy cập của file, ví dụ như là 066, hay 0755 là quyền đọc và ghi thực thi cho `Owner`
+
+      - Ví dụ như đại diện đọc cho một cái file ở bên ngoài thì chúng ta sẽ làm như thế nào
+
+  - Do là demo nên là cần phải viết trong một cái file main, còn khi mà viết thực thì cần phải viết vào bên trong cái folder `logger` ở bên trong `pkg` của dự án thì nó mới đúng được
+
+  - Và cái nữa là cái log.txt ở trong thằng `zap` thì nó không hỗ trợ việc phân đoạn ở trong nhật ký -> Nên nếu chúng ta muốn là 30MB nó tự xoá hoặc là maximum mấy ngày thì nó tự xoá, nâng cao như vậy thì chúng ta nên sử dụng package nào cho nó đúng -> Thì Lumberjack tích hợp như thế nào thì video sau sẽ rõ
 
 > > > > Go (7) GIN vs Viper Config
 

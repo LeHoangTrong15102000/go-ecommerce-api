@@ -1,6 +1,10 @@
 package response
 
-import "github.com/gin-gonic/gin"
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
 
 type ResponseData struct {
 	Code    int         `json:"code"`
@@ -9,4 +13,19 @@ type ResponseData struct {
 }
 
 // success response
-func SuccessResponse(c *gin.Context, code int, data interface{}) {}
+func SuccessResponse(c *gin.Context, code int, data interface{}) {
+	c.JSON(http.StatusOK, ResponseData{
+		Code: code,
+		Message: msg[code],
+		Data: data,
+	})
+}
+
+
+func ErrorResponse(c *gin.Context, code int, message string) {
+	c.JSON(http.StatusOK, ResponseData{
+		Code: code,
+		Message: msg[code],
+		Data: nil,
+	})
+}
