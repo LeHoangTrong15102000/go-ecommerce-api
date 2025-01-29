@@ -81,7 +81,17 @@
 
 > > > > Go (7) GIN vs Viper Config
 
-- Video 5
+- Việc quản lí cấu hình là nhiệm cơ bản nhưng mà nó rất rất là quan trọng, nó liên quan đến việc quản lí hiệu quả cái biến config ở bên trong cái cấu hình của dự án của mình, trong cái application của mình, chẳng hạn như là thông tin kết nối database, các cái API của third-party, ... -> Nên là chúng ta cần phải có một cái công cụ và một cái thư viện quản lí tốt giúp cho các lập trình viên quản lí các cấu hình này dễ dàng hơn, ngoài ra còn cải thiện tính bảo mật và tính linh hoạt của dự án
+
+- Nếu bây giờ lỡ có nhiều `database` ở trong dự án thì cần phải làm như thế nào,
+
+  - Nếu như mà chúng ta thực hiện giống như trong cái file local.yaml thì cái file config của chúng tôi nó chứa cái đối tượng rất là phức tạp -> Cho nên chúng ta ưu tiên sử dụng UnMarshal để mà thực hiện việc liên kết các config trực tiếp và đưa vào một cái cấu trức `slide`
+
+  - Đầu tiên chúng ta cần xác định cái `file` ở trong cấu hình go phù hợp với cấu trúc của một cái `struct`
+
+  - Thì Database cũng là một cái `slice struct`
+
+- Bình thường thì cũng có sử dụng struct chứ không phải là không, nhưng mà khi đã ra dự án thực tế rồi thì nó quản lí nhiều nguồn tham chiếu nên cần phải có struct để mà quản lí(Thì khi đó struct nó mới phát huy tối đa hiệu quả được)
 
 > > > > Go (8) GIN vs Middleware
 
@@ -98,3 +108,21 @@
 > > > > Go (10) - Fix func main để tạo nhóm kết nối chung(Initialize)
 
 - Video 5
+
+> > > > Go (11) - Sủ dụng Lumberjack quản lí FILE LOG lớn
+
+> > > > Go (12) - Connect MySQL Pool hiệu quả và test BenchMark cho 2 trường
+
+- Video
+
+> > > > Go (13) - Connect Redis Pool hiệu quả và test BenchMark cho 2 trường hợp
+
+- Video
+
+> > > > Go (14) -
+
+- Video
+
+> > > > Go (15) -
+
+- Video

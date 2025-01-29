@@ -1,1 +1,3 @@
 docs
+# Ignore all files in the config folder
+config/production.yaml
