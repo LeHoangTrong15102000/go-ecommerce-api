@@ -1,6 +1,7 @@
 package controller
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -17,6 +18,7 @@ func NewPongController() *PongController {
 
 
 func (p *PongController) Pong(c *gin.Context) {
+	fmt.Println("Pong --> Pong")
 	name := c.DefaultQuery("name", "LeHoangTrong")
 	uid := c.Query("uid")
 	c.JSON(http.StatusOK, gin.H{

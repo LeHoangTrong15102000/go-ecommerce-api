@@ -50,12 +50,13 @@ func main() {
 
 
 	// Bởi vì thằng Database là một mảng nên là cần phải lặp qua nó
+	// Chúng ta sẽ có rất là nhiều trường ở trong cái file yaml đó nên là chỉ cần xử lý cái tình huống nó như thế này là xong
 	for _, db := range config.Database {
 
 		fmt.Printf(("database User: %s, Password: %s, host: %s"), db.User, db.Password, db.Host)
-		fmt.Println("Database User::", db.User)
-		fmt.Println("Database Password::", db.Password)
-		fmt.Println("Database Host::", db.Host)
-		fmt.Println("Database DbName::", db.DbName)
-	}
-} 
+		// fmt.Println("Database User::", db.User)
+		// fmt.Println("Database Password::", db.Password)
+		// fmt.Println("Database Host::", db.Host)
+		// fmt.Println("Database DbName::", db.DbName)
+	}	
+}	

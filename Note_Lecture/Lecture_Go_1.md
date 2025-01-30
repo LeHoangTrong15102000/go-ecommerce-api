@@ -95,7 +95,21 @@
 
 > > > > Go (8) GIN vs Middleware
 
-- Video 5
+- Middleware thì cần phải return về `handlerFunc`
+
+- Có 2 cách để mà chúng ta viết middleware đó là:
+
+  - Cách 1 là chúng ta sẽ return về `handlerFunc`
+
+  - Cách 2 là chúng ta sẽ trỏ cái `*gin.Context` luôn là `gin.HandlerFunc`
+
+- Đã có các midđleware rồi thì bây giờ chúng ta sẽ khai báo nó như thế nào
+
+  - Khi mà chạy thì nó sẽ in cái `Before` trước, sau đó sẽ tới `MyHandler`, rồi cuối cùng thì nó sẽ trả về cái `Alter`
+
+  - 5 cái middleware chúng ta thường hay sử dụng trong cái ứng dụng của chúng ta đó là: auth, cors, logger, ratelimit, errorhandler
+
+  - Thì chúng ta sẽ làm thử cái middleware của `Auth` khi mà người dùng đăng nhập thì cần phải check Authentication của người dùng
 
 > > > > Go (9) GIN vs Unit test Go
 

@@ -12,3 +12,11 @@ database:
 security:
   jwt:
     key: abc123
+redis:
+  user: admin
+elasticsearch:
+  user: admin
+rabbitMQ:
+  user: admin
+kafka:
+  user: admin
