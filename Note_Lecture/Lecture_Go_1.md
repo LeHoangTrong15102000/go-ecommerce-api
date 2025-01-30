@@ -5,7 +5,6 @@
 >
 
 - Ví dụ như POST thì người ta sẽ có là c.ShouldBindJSON() để mà thao tác với cái vấn đề đó thôi
-  \
 
 > > > > Go (4) GIN và MVC
 
@@ -113,7 +112,26 @@
 
 > > > > Go (9) GIN vs Unit test Go
 
-- Video 5
+- Sẽ đi qua các cái ví dụ thực tế để mà hiểu rõ hơn gói testing ở trong `Golang`, -> Sẽ h iểu được cách viết test đơn giản, hiểu được cái luồng đi, cách kiểm tra một cái lỗi, cách sử dụng các công cụ(tool) hỗ trợ như thế nào
+
+- Về viết test thì cần phải đảm bảo chất lượng và độ tin cậy của ứng dụng này
+
+- `Test-Driven` là một phương pháp phát triển trong đó chúng ta sẽ viết test trước khi mà viết code -> Có thể là chúng ta làm xong và đưa cái file test đó cho `tester` để mà họ -> Để mà có thể giúp chúng ta rút ngắn cái thời gian xảy ra lỗi nhiều hơn -> Thì cách thực hiện và sử dụng nó như thế nào thì chúng ta sẽ đi tìm hiểu nó.
+
+- Với những cái test-case cần phải biết được đầu vào và đầu ra của nó - input và output như thế nào thì mới có thể viết được
+
+- Cái func ở trong file test thì đầu tiên là nó phải có chữ test thì mới được -> Và ở trong đó thì chúng ta cần phải add cái gói `testing` của go vào
+
+  - Chúng ta cần phải khai báo 2 cái biến:
+
+    - 1 là input đầu vào là gì
+    - 2 là output đầu ra là gì
+
+  - Và thực tế là sẽ nhận được cái gì
+
+- Ngoài ra các lập trình viên còn có gói `testify` để mà viết test ở trong `golang`
+
+- Cái hàm Require nó sẽ khác so với thằng `Assert` khi mà nó test mà nó bị failed thì các thằng đằng sau nó sẽ bị dừng lại, còn thằng Assert khi mà nó failed thì nó vẫn tiếp tục thực hiện phương thức ở phía dưới
 
 > > > > Go (9) GIN vs Unit test Go
 
