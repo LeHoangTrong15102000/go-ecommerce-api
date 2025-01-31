@@ -2,6 +2,7 @@ package initialize
 
 import (
 	"fmt"
+	"go-ecommerce-backend-api/global"
 
 	"github.com/spf13/viper"
 )
@@ -41,9 +42,8 @@ func LoadConfig() {
 
 	// Configure structure
 	// Sẽ khai báo global để mà truy cập toàn thư mục để mà lấy được cấu hình -> Thì chúng ta nên set cho nó một cái biến global
-	var config Config
 	// Nếu mà bị lỗi
-	if err := viper.Unmarshal(&config); err != nil {
+	if err := viper.Unmarshal(&global.Config); err != nil {
 		fmt.Printf("Unable to decode unmarshal configuration: %v", err)
 	}
 }

@@ -151,6 +151,20 @@
 
 - Vì cái file Config sau này nó sẽ chứa rất là nhiều cấu hình như là, Redis, Mysql, VNPay, mail, ... Nên là chúng ta cẩn phải có một cái file đóng gói nó lại thành một
 
+- Ngoài những cơ bản ở trên thì trong cái gói GORM của `Golang` mà chúng ta làm thư viện liên kết với thằng MySQL thì nó có 3 cái thuộc tính rất là cơ bản
+
+  - `maxIdleConns` Số lượng kết nối `Idle` tối đa được cho phép ở trong cái `pool-connect`
+  - `maxOpenConns` Số lượng kết nối `Open` được mở tối đa có thể, giá trị mặc định của nó là `0` nghĩa là nó không giới hạn tuỳ theo cái `server` vật lý của chúng ta, phải kiểm soát được số lượng kết nối được áp dụng cho `csdl` để tránh làm sao cho `csdl` không bị quá tải với không lạm dụng được nhiều `kết nối`
+  - `connMaxLifeTime` Thì cái thằng thuộc tính này nó đặt một cái vòng đời tối đa của một cái `connect`, vì bản thân `csdl` nó đã có cài đặt thời gian chờ cho một cái `connect` rồi -> Nếu hết thời gian chờ thì `csdl` sẽ tự động ngắt kết nối thì lúc này nó sẽ ra một cái lỗi khi sử dụng cái `kết nối` trong `pool` khi mà `truy cập` -> Thì cái giá trị là `3600s = 1 phút` là được không cần nhiều
+
+  - Những cái gì ở file `local.yaml` thì file `section` điều phải có
+
+  - Khi mà đã có `config` và `MySQLSetting` rồi thì chúng ta sẽ viết một hàm để `connect` ở trong `InitMysql` của chúng ta
+
+    - Thì phần kết nối tới `MySql` thì chúng ta sẽ để cho phần sau vì cái thz MySQL chúng ta cần phải giới thiệu qua cái thành phần `GORM` -> Nó là một cái cách kết nối `database` rất là phổ biến, khi mà sử dụng `GORM` thì nó sử dụng rất là nhiều `csdl` `database` như là SqLite, MySQL, MongoDB, ... Ngoài ră chúng ta sẽ tóm lượt một cách kết nối có hiệu suất truy suất cao, tính đồng thời cao ở trong `Golang`
+
+  - Nhưng mà cái cách này nó hơi củ chuối một tí thôi, trong Golang nó sẽ tổ chức cho chúng ta một cái gọi là `Makefile`
+
 > > > > Go (11) - Sủ dụng Lumberjack quản lí FILE LOG lớn
 
 - Video
