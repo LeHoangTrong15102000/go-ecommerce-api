@@ -133,9 +133,15 @@
 
 - Cái hàm Require nó sẽ khác so với thằng `Assert` khi mà nó test mà nó bị failed thì các thằng đằng sau nó sẽ bị dừng lại, còn thằng Assert khi mà nó failed thì nó vẫn tiếp tục thực hiện phương thức ở phía dưới
 
-> > > > Go (9) GIN vs Unit test Go
+  - Require nó sẽ chặn cái câu lệnh ở phía dưới nếu mà chạy câu test không đúng
 
-- Video 5
+- Thì ở trong golang thì cái testing cơ bản không thể nào mà dùng tại đây được -> Trong golang nó hỗ trợ cho chúng ta một cái tool gọi là `Coverage` -> Thì trong lập trình ngta gọi là `Code Cover` -> Thì nó là một cái thước đo rất là quan trọng để mà xác định tỉ lệ phần trăm cái `source code` của chúng ta nó đã được kiểm tra bởi cái `testing` hay chưa
+
+  - Có thể tạo một cái rp để mà kiểm tra độ bao phủ code của chúng ta là bao nhiêu ở trong `Golang` để mà đọc quả HTML
+
+  - Chạy một cái câu lệnh để mà chạy tất cả các test và sau đó lưu kết quả vào cái file HTML thì chỉ cần sử dụng tool là `go tool cover -html=coverage.out`
+
+- Qua video sau chúng ta sẽ thực hiện sắp xếp lại thư mục, loại lại cái config, kết nối database, kết nối redis, và làm cái gì đó đầy đủ trong một file -> Bắt đầu chinh chiến Golang từ golang từ level 2 - 5
 
 > > > > Go (10) - Fix func main để tạo nhóm kết nối chung(Initialize)
 
@@ -151,10 +157,58 @@
 
 - Video
 
-> > > > Go (14) -
+> > > > Go (14) - Triển khai Router cho TEAM Lớn | Cuộc chiến bắt đầu
 
 - Video
 
-> > > > Go (15) -
+> > > > Go (15) - Kafka thực hành về mua bán cổ phía với các tình huống
+
+- Video
+
+> > > > Go (16) - Interface vì sao các dự án lớn tôi luôn đề nghị triển khai | NOCODE
+
+- Video
+
+> > > > Go (17) - Interface cách triển khai và bố trí CODE | THỰC HÀNH
+
+- Video
+
+> > > > Go (18) - Wire Dependency Injection
+
+- Video
+
+> > > > Go (19) - Migrating Schema With GORM to MySQL and DUMP Database
+
+- Video
+
+> > > > Go (20) - Chiến đấu DOCKER, sai lầm cách build này level 0,1
+
+- Video
+
+> > > > Go (21) - Chiến đấu với DOCKER LINK, docker compose build project Level 2 ,3 ,4
+
+- Video
+
+> > > > Go (22) - Advanced: Công ty đề nghị chuyển GORM sang SQLC như thế nào?
+
+- Video
+
+> > > > Go (23) - Advanced: Goose(A Database Migration Tool) hiệu suất cao của dân Backend
+
+- Video
+
+> > > > Go (24) - User Register Send OTP To Email Template
+
+- Video
+
+> > > > Go (25) - Loại đại ca GORM thay thế tân binh GORM vs SQLC hệ thống trở nên mạnh mẽ
+
+- Video
+
+> > > > Go (26) - Làm việc với Microservices, GO handler OTP, Java send OTP to AWS
+
+- Video
+
+> > > > Go (27) - Triển khai Kafka Microservices
 
 - Video
