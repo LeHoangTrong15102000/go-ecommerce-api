@@ -145,9 +145,15 @@
 
 > > > > Go (10) - Fix func main để tạo nhóm kết nối chung(Initialize)
 
-- Video 5
+- Trình bày về cách mà một kiến trúc về `Golang` nó sẽ được setup như thế nào ở trong cái hàm main của chúng ta -> Để mà chúng ta hình dung ra nó được khởi tạo và cấu hình cái thằng main nó sẽ như thế nào
+
+- File loadconfig.go để mà chúng ta đọc những cái config ở trong file `viper.go` đã được khai báo ở trong `local.yaml` từ trước đó
+
+- Vì cái file Config sau này nó sẽ chứa rất là nhiều cấu hình như là, Redis, Mysql, VNPay, mail, ... Nên là chúng ta cẩn phải có một cái file đóng gói nó lại thành một
 
 > > > > Go (11) - Sủ dụng Lumberjack quản lí FILE LOG lớn
+
+- Video
 
 > > > > Go (12) - Connect MySQL Pool hiệu quả và test BenchMark cho 2 trường
 
